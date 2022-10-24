@@ -1,6 +1,5 @@
 config.js
 dist
 lib
-tmp
 node_modules
 package-lock.json
