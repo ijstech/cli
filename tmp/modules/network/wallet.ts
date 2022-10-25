@@ -86,12 +86,12 @@ export async function logoutWallet() {
 
 export const hasWallet = function () {
   let hasWallet = false;
-//   for (let wallet of walletList) {
-//     if (Wallet.isInstalled(wallet.name)) {
-//       hasWallet = true;
-//       break;
-//     } 
-//   }
+  for (let wallet of walletList) {
+    if (Wallet.isInstalled(wallet.name)) {
+      hasWallet = true;
+      break;
+    } 
+  }
   return hasWallet;
 }
 
@@ -101,5 +101,5 @@ export const hasMetaMask = function () {
 
 export const truncateAddress = (address: string) => {
   if (address === undefined || address === null) return '';
-  return address.substr(0, 6) + '...' + address.substr(-4);
+  return address.substring(0, 6) + '...' + address.substring(address.length - 4);
 }
