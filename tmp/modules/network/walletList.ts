@@ -4,17 +4,17 @@ export const walletList = [
     {
         name: WalletPlugin.MetaMask,
         displayName: 'MetaMask',
-        iconFile: 'metamask.png'
+        img: 'metamask'
     },
     {
         name: WalletPlugin.TrustWallet,
         displayName: 'Trust Wallet',
-        iconFile: 'trustwallet.svg'
+        img: 'trustwallet'
     },
     {
         name: WalletPlugin.BinanceChainWallet,
         displayName: 'Binance Chain Wallet',
-        iconFile: 'binance-chain-wallet.svg'
+        img: 'binanceChainWallet'
     },
 ]
 

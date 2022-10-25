@@ -193,7 +193,7 @@ export class Header extends Module {
       this.hsViewAccount.visible = false;
     }
     if (this.selectedNetwork) {
-      this.btnNetwork.icon.image = <i-image width={26} url={Assets.fullPath(this.selectedNetwork.img)}></i-image>
+      this.btnNetwork.icon = <i-icon width={26} height={26} image={{ url: Assets.img.network[this.selectedNetwork.img] }} ></i-icon>
       this.btnNetwork.caption = this.selectedNetwork.name;
     } else {
       this.btnNetwork.icon = undefined;
@@ -328,7 +328,7 @@ export class Header extends Module {
             wordBreak="break-word"
             font={{ size: '.875rem', bold: true, color: Theme.colors.primary.dark }}
           />
-          <i-image width={34} height="auto" url={Assets.fullPath(`img/wallet/${wallet.iconFile}`)} />
+          <i-image width={34} height="auto" url={Assets.img.wallet[wallet.img]} />
         </i-hstack>
       );
       this.walletMapper.set(wallet.name, hsWallet);
@@ -341,7 +341,7 @@ export class Header extends Module {
     this.networkMapper = new Map();
     const networksList = getNetworkList();
     this.gridNetworkGroup.append(...networksList.map((network) => {
-      const img = network.img ? <i-image url={Assets.fullPath(`img/${network.img}`)} width={34} height={34} /> : [];
+      const img = network.img ? <i-image url={Assets.img.network[network.img]} width={34} height={34} /> : [];
       const isActive = this.isNetworkActive(network.chainId);
       if (isActive) this.currActiveNetworkId = network.chainId;
       const hsNetwork = (
@@ -383,7 +383,7 @@ export class Header extends Module {
   _getMenuData(list: IModuleMenu[], mode: string, validMenuItemsFn: (item: IModuleMenu) => boolean): IMenuItem[] {
     const menuItems: IMenuItem[] = [];
     list.filter(validMenuItemsFn).forEach((item: IModuleMenu, key: number) => {
-      const linkTarget = item.isToExternal ? '_blank': '_self';
+      const linkTarget = item.isToExternal ? '_blank' : '_self';
       const _menuItem: IMenuItem = {
         title: item.caption,
         link: { href: item.module, target: linkTarget },
@@ -430,7 +430,7 @@ export class Header extends Module {
   render() {
     return (
       <i-panel padding={{ top: '0.5rem', bottom: '0.5rem', left: '1rem', right: '1rem' }} >
-        <i-hstack width="100%" position="relative" horizontalAlignment='space-between'>
+        <i-hstack width="100%" position="relative" horizontalAlignment='space-between' wrap='wrap'>
           <i-hstack
             id="hsMobileMenu"
             verticalAlignment="center"
@@ -472,95 +472,93 @@ export class Header extends Module {
             <i-menu id="menuDesktop" width="100%" border={{ left: { color: '#192046', width: '1px', style: 'solid' } }}></i-menu>
           </i-hstack>
           <i-hstack verticalAlignment='center' horizontalAlignment='end'>
-            <i-hstack margin={{ right: '0.5rem' }}>
-              <i-panel>
-                <i-button
-                  id="btnNetwork"
-                  class="btn-network"
-                  margin={{ right: '1rem' }}
-                  padding={{ top: '0.375rem', bottom: '0.375rem', left: '0.75rem', right: '0.75rem' }}
-                  background={{ color: '#101026' }}
-                  border={{ width: '1px', style: 'solid', color: '#101026', radius: 5 }}
-                  font={{ color: Theme.text.secondary }}
-                  onClick={this.openNetworkModal}
-                  caption={"Unsupported Network"}
-                ></i-button>
-              </i-panel>
-              <i-hstack
-                id="hsBalance"
-                visible={false}
-                horizontalAlignment="center"
-                verticalAlignment="center"
-                background={{ color: "#192046" }}
-                lineHeight="25px"
-                border={{ radius: 6 }}
-                padding={{ top: 6, bottom: 6, left: 10, right: 10 }}
-              >
-                <i-label id="lblBalance" font={{ color: Theme.text.secondary }}></i-label>
-              </i-hstack>
-              <i-panel id="pnlWalletDetail" visible={false}>
-                <i-button
-                  id="btnWalletDetail"
-                  padding={{ top: '0.5rem', bottom: '0.5rem', left: '0.75rem', right: '0.75rem' }}
-                  margin={{ left: '0.5rem' }}
-                  border={{ radius: 5 }}
-                  font={{ color: Theme.text.secondary }}
-                  background={{ color: Theme.colors.error.light }}
-                  onClick={this.openWalletDetailModal}
-                ></i-button>
-                <i-modal
-                  id="mdWalletDetail"
-                  height="auto"
-                  maxWidth={200}
-                  minWidth={200}
-                  showBackdrop={false}
-                  popupPlacement="bottomRight"
-                  background={{ color: "#252a48" }}
-                >
-                  <i-vstack gap={15} padding={{ top: 10, left: 10, right: 10, bottom: 10 }}>
-                    <i-button
-                      caption="Account"
-                      width="100%"
-                      height="auto"
-                      border={{ radius: 5 }}
-                      font={{ color: Theme.text.secondary }}
-                      background={{ color: "transparent linear-gradient(90deg, #8C5AFF 0%, #442391 100%) 0% 0% no-repeat padding-box" }}
-                      padding={{ top: '0.5rem', bottom: '0.5rem' }}
-                      onClick={this.openAccountModal}
-                    ></i-button>
-                    <i-button
-                      caption="Switch wallet"
-                      width="100%"
-                      height="auto"
-                      border={{ radius: 5 }}
-                      font={{ color: Theme.text.secondary }}
-                      background={{ color: "transparent linear-gradient(90deg, #8C5AFF 0%, #442391 100%) 0% 0% no-repeat padding-box" }}
-                      padding={{ top: '0.5rem', bottom: '0.5rem' }}
-                      onClick={this.openConnectModal}
-                    ></i-button>
-                    <i-button
-                      caption="Logout"
-                      width="100%"
-                      height="auto"
-                      border={{ radius: 5 }}
-                      font={{ color: Theme.text.secondary }}
-                      background={{ color: "transparent linear-gradient(90deg, #8C5AFF 0%, #442391 100%) 0% 0% no-repeat padding-box" }}
-                      padding={{ top: '0.5rem', bottom: '0.5rem' }}
-                      onClick={this.logout}
-                    ></i-button>
-                  </i-vstack>
-                </i-modal>
-              </i-panel>
+            <i-panel>
               <i-button
-                id="btnConnectWallet"
-                caption="Connect Wallet"
+                id="btnNetwork"
+                class="btn-network"
+                margin={{ right: '1rem' }}
+                padding={{ top: '0.375rem', bottom: '0.375rem', left: '0.75rem', right: '0.75rem' }}
+                background={{ color: '#101026' }}
+                border={{ width: '1px', style: 'solid', color: '#101026', radius: 5 }}
+                font={{ color: Theme.text.secondary }}
+                onClick={this.openNetworkModal}
+                caption={"Unsupported Network"}
+              ></i-button>
+            </i-panel>
+            <i-hstack
+              id="hsBalance"
+              visible={false}
+              horizontalAlignment="center"
+              verticalAlignment="center"
+              background={{ color: "#192046" }}
+              lineHeight="25px"
+              border={{ radius: 6 }}
+              padding={{ top: 6, bottom: 6, left: 10, right: 10 }}
+            >
+              <i-label id="lblBalance" font={{ color: Theme.text.secondary }}></i-label>
+            </i-hstack>
+            <i-panel id="pnlWalletDetail" visible={false}>
+              <i-button
+                id="btnWalletDetail"
+                padding={{ top: '0.5rem', bottom: '0.5rem', left: '0.75rem', right: '0.75rem' }}
+                margin={{ left: '0.5rem' }}
                 border={{ radius: 5 }}
                 font={{ color: Theme.text.secondary }}
-                padding={{ top: '0.375rem', bottom: '0.375rem', left: '0.5rem', right: '0.5rem' }}
-                margin={{ left: '0.5rem' }}
-                onClick={this.openConnectModal}
+                background={{ color: Theme.colors.error.light }}
+                onClick={this.openWalletDetailModal}
               ></i-button>
-            </i-hstack>
+              <i-modal
+                id="mdWalletDetail"
+                height="auto"
+                maxWidth={200}
+                minWidth={200}
+                showBackdrop={false}
+                popupPlacement="bottomRight"
+                background={{ color: "#252a48" }}
+              >
+                <i-vstack gap={15} padding={{ top: 10, left: 10, right: 10, bottom: 10 }}>
+                  <i-button
+                    caption="Account"
+                    width="100%"
+                    height="auto"
+                    border={{ radius: 5 }}
+                    font={{ color: Theme.text.secondary }}
+                    background={{ color: "transparent linear-gradient(90deg, #8C5AFF 0%, #442391 100%) 0% 0% no-repeat padding-box" }}
+                    padding={{ top: '0.5rem', bottom: '0.5rem' }}
+                    onClick={this.openAccountModal}
+                  ></i-button>
+                  <i-button
+                    caption="Switch wallet"
+                    width="100%"
+                    height="auto"
+                    border={{ radius: 5 }}
+                    font={{ color: Theme.text.secondary }}
+                    background={{ color: "transparent linear-gradient(90deg, #8C5AFF 0%, #442391 100%) 0% 0% no-repeat padding-box" }}
+                    padding={{ top: '0.5rem', bottom: '0.5rem' }}
+                    onClick={this.openConnectModal}
+                  ></i-button>
+                  <i-button
+                    caption="Logout"
+                    width="100%"
+                    height="auto"
+                    border={{ radius: 5 }}
+                    font={{ color: Theme.text.secondary }}
+                    background={{ color: "transparent linear-gradient(90deg, #8C5AFF 0%, #442391 100%) 0% 0% no-repeat padding-box" }}
+                    padding={{ top: '0.5rem', bottom: '0.5rem' }}
+                    onClick={this.logout}
+                  ></i-button>
+                </i-vstack>
+              </i-modal>
+            </i-panel>
+            <i-button
+              id="btnConnectWallet"
+              caption="Connect Wallet"
+              border={{ radius: 5 }}
+              font={{ color: Theme.text.secondary }}
+              padding={{ top: '0.375rem', bottom: '0.375rem', left: '0.5rem', right: '0.5rem' }}
+              margin={{ left: '0.5rem' }}
+              onClick={this.openConnectModal}
+            ></i-button>
           </i-hstack>
         </i-hstack>
         <i-modal
