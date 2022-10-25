@@ -30,21 +30,30 @@
           "chainId": 1,
           "img": "@dapp/assets/img/network/eth.svg",
           "rpc": "https://mainnet.infura.io/v3/{InfuraId}",
-          "env": "mainnet"
+          "env": "mainnet",
+          "explorerName": "Etherscan",
+          "explorerTxUrl": "https://etherscan.io/tx/",
+          "explorerAddressUrl": "https://etherscan.io/address/"
         },
         {
           "name": "Binance Smart Chain",
           "chainId": 56,
           "img": "@dapp/assets/img/network/bsc.svg",
           "rpc": "https://bsc-dataseed.binance.org/",   
-          "env": "mainnet"
+          "env": "mainnet",
+          "explorerName": "BSCScan",
+          "explorerTxUrl": "https://bscscan.com/tx/",
+          "explorerAddressUrl": "https://bscscan.com/address/"
         },
         {
           "name": "BSC Testnet",
           "chainId": 97,
           "img": "@dapp/assets/img/network/bsc.svg",
           "rpc": "https://data-seed-prebsc-1-s1.binance.org:8545/",   
-          "env": "testnet"
+          "env": "testnet",
+          "explorerName": "BSCScan",
+          "explorerTxUrl": "https://testnet.bscscan.com/tx/",
+          "explorerAddressUrl": "https://testnet.bscscan.com/address/"
         }
     ]
 }
