@@ -45,6 +45,7 @@ interface IModuleMenu extends IModuleMenuItem {
 }
 
 export interface HeaderElement extends ControlElement {
+  logo?: string;
   menuItems?: IModuleMenu[];
 }
 declare global {
@@ -86,6 +87,7 @@ export class Header extends Module {
   private walletMapper: Map<WalletPlugin, HStack>;
   private currActiveNetworkId: number;
   private currActiveWallet: WalletPlugin;
+  private logo: string;
   @observable()
   private walletInfo = {
     address: '',
@@ -139,6 +141,7 @@ export class Header extends Module {
   init() {
     this.classList.add(styleClass);
     this.selectedNetwork = getNetworkInfo(getDefaultChainId());
+    this.logo = this.getAttribute("logo", true, "");
     super.init();
     this._menuItems = this.getAttribute("menuItems", true, []);
     this.renderMobileMenu();
@@ -459,14 +462,14 @@ export class Header extends Module {
             </i-modal>
             <i-label
               class='pointer'
-              caption='Logo'
+              caption={this.logo}
               font={{ size: '1.25rem', bold: true, color: Theme.text.secondary }}
             ></i-label>
           </i-hstack>
           <i-hstack id="hsDesktopMenu" class="desktop-wrap" verticalAlignment="center" gap={8}>
             <i-label
               class='pointer'
-              caption='Logo'
+              caption={this.logo}
               font={{ size: '1.25rem', bold: true, color: Theme.text.secondary }}
             ></i-label>
             <i-menu id="menuDesktop" width="100%" border={{ left: { color: '#192046', width: '1px', style: 'solid' } }}></i-menu>

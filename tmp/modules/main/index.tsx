@@ -3,22 +3,31 @@ import Assets from '@dapp/assets';
 import styleClass from './index.css';
 import { setDataFromSCConfig } from '@dapp/network';
 export { Header } from './header';
+export { Footer } from './footer';
 Styles.Theme.applyTheme(Styles.Theme.darkTheme);
 
-interface IMenuItem {
-	caption?: string;
-  module: string;
-}
+// interface IMenuItem {
+// 	caption?: string;
+// 	url?: string;
+// 	module?: string;
+// 	params?: any;
+// 	menus?: IMenuItem[]
+// }
 
 @customModule
 export default class MainLauncher extends Module {
 	private menuItems: any[];
+	private logo: string;
+	private copyrightInfo: string;
+
 	constructor(parent?: Container, options?: any) {
 		super(parent, options);
 		this.classList.add(styleClass);
 	};
 	override initCustomData(options: any) {
 		this.menuItems = options.menus || [];
+		this.logo = options.logo || "";
+		this.copyrightInfo = options.copyright || "";
 		setDataFromSCConfig(options);
 	}
 	getBreadcrumbList(): string[] {
@@ -87,8 +96,16 @@ export default class MainLauncher extends Module {
 				dock='top'
 				zIndex={-10}
 			></i-stack>
-			<main-header id="header" width="100%" menuItems={this.menuItems}></main-header>
-			<i-panel id="footer" width="100%"></i-panel>
+			<main-header id="header" width="100%" logo={this.logo} menuItems={this.menuItems}></main-header>
+			<main-footer
+				id="footer"
+				stack={{ shrink: '0' }}
+				class='footer'
+				height="auto"
+				width="100%"
+				logo={this.logo}
+				copyrightInfo={this.copyrightInfo}
+			></main-footer>
 		</i-panel>
 	};
 };
