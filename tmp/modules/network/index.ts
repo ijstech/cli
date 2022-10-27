@@ -21,8 +21,8 @@ export const NativeTokenByChainId: { [key: number]: ITokenObject } = {
   5: {address:undefined,decimals:18,symbol:"ETH", name: 'ETH'},
 };
 export const setDataFromSCConfig = (options: any) => {
-  if (options.networkList) {
-    setNetworkList(options.networkList, options.infuraId)
+  if (options.networks) {
+    setNetworkList(options.networks, options.infuraId)
   }
   if (options.defaultChainId) {
     setDefaultChainId(options.defaultChainId)
