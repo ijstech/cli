@@ -1,12 +1,14 @@
 {
     "name": "demo2",
     "version": "0.1.0",
-    "engines": {},
+    "engines": {
+        "node": ">=18.0.0"
+    },
     "dependencies": {
         "@ijstech/eth-wallet": "^0.1.19"
     },
     "devDependencies": {
-        "@ijstech/cli": "^0.1.6",
+        "@ijstech/cli": "^0.1.9",
         "@ijstech/compiler": "^0.1.7",
         "@ijstech/components": "^0.1.17"
     },
