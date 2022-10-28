@@ -8,13 +8,13 @@
         "@ijstech/eth-wallet": "^0.1.19"
     },
     "devDependencies": {
-        "@ijstech/cli": "^0.1.9",
+        "@ijstech/cli": "^0.1.11",
         "@ijstech/compiler": "^0.1.7",
         "@ijstech/components": "^0.1.17"
     },
     "scripts": {
         "build": "rm -rf dist && npx @ijstech/compiler",
-        "serve": "npx @ijstech/cli serve",
-        "dev": "npm run build && npm run serve"
+        "serve": "npx @ijstech/cli serve 8080",
+        "test": "npm run build && npm run serve"
     }
 }
