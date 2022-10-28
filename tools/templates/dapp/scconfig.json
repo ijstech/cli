@@ -1,5 +1,6 @@
 {    
     "env": "testnet",
+    "logo": "Logo",
     "main": "@dapp/main",
     "moduleDir": "modules",
     "modules": {
@@ -11,38 +12,64 @@
         },
         "@dapp/module1": {
             "path": "module1"
+        },
+        "@dapp/module2": {
+            "path": "module2"
+        },
+        "@dapp/network": {
+            "path": "network"
         }
     },
     "dependencies": {
-        
     },
     "menus": [
         {
             "caption": "Module 1",
-            "module": "@dapp/module1"
+            "url": "/module1",
+            "module": "@dapp/module1",
+            "params": {},
+            "menus": []
+        },
+        {
+            "caption": "Module 2",
+            "url": "/module2",
+            "module": "@dapp/module2",
+            "params": {},
+            "menus": []
         }
     ],
+    
     "networks": [
         {
           "name": "Ethereum",
           "chainId": 1,
-          "img": "@dapp/assets/img/network/eth.svg",
+          "img": "eth",
           "rpc": "https://mainnet.infura.io/v3/{InfuraId}",
-          "env": "mainnet"
+          "env": "mainnet",
+          "explorerName": "Etherscan",
+          "explorerTxUrl": "https://etherscan.io/tx/",
+          "explorerAddressUrl": "https://etherscan.io/address/"
         },
         {
           "name": "Binance Smart Chain",
           "chainId": 56,
-          "img": "@dapp/assets/img/network/bsc.svg",
+          "img": "bsc",
           "rpc": "https://bsc-dataseed.binance.org/",   
-          "env": "mainnet"
+          "env": "mainnet",
+          "explorerName": "BSCScan",
+          "explorerTxUrl": "https://bscscan.com/tx/",
+          "explorerAddressUrl": "https://bscscan.com/address/"
         },
         {
           "name": "BSC Testnet",
           "chainId": 97,
-          "img": "@dapp/assets/img/network/bsc.svg",
+          "img": "bsc",
           "rpc": "https://data-seed-prebsc-1-s1.binance.org:8545/",   
-          "env": "testnet"
+          "env": "testnet",
+          "explorerName": "BSCScan",
+          "explorerTxUrl": "https://testnet.bscscan.com/tx/",
+          "explorerAddressUrl": "https://testnet.bscscan.com/address/"
         }
-    ]
+    ],
+    "copyright": "&#169; 2022 IJS Technologies. All rights reserved."
 }

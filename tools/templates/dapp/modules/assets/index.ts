@@ -7,8 +7,13 @@ function fullPath(path: string): string{
 export default {
     img: {
         network: {
-            bsc: `${moduleDir}/img/network/bsc.svg`,
-            eth: `${moduleDir}/img/network/eth.svg`,
+            bsc: fullPath('img/network/bsc.svg'),
+            eth: fullPath('img/network/eth.svg'),
+        },
+        wallet: {
+            metamask: fullPath('img/wallet/metamask.png'),
+            trustwallet: fullPath('img/wallet/trustwallet.svg'),
+            binanceChainWallet: fullPath('img/wallet/binance-chain-wallet.svg'),
         }
     },
     fullPath
