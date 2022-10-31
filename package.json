@@ -1,11 +1,11 @@
 {
-    "name": "scom",
-    "version": "0.1.12",
+    "name": "@ijstech/cli",
+    "version": "0.1.13",
     "repository": {
         "type": "git",
         "url": "https://github.com/ijstech/cli"
     },
     "bin": {
-        "scom": "tools/cli.js"
+        "cli": "tools/cli.js"
     }
 }

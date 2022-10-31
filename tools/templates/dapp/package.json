@@ -5,8 +5,8 @@
         "node": ">=18.0.0"
     },
     "devDependencies": {
-        "@ijstech/cli": "^0.1.12",
-        "@ijstech/compiler": "^0.1.9",
+        "@ijstech/cli": "^0.1.13",
+        "@ijstech/compiler": "^0.1.10",
         "@ijstech/components": "^0.1.18",
         "@ijstech/eth-wallet": "^0.1.20"
     },
