@@ -1,12 +1,10 @@
 {    
     "env": "testnet",
-    "logo": "Logo",
-    "main": "@dapp/main",
+    "logo": "logo",
+    "main": "@scom/dapp",
+    "assets": "@dapp/assets",
     "moduleDir": "modules",
     "modules": {
-        "@dapp/main": {
-            "path": "main"
-        },
         "@dapp/assets": {
             "path": "assets"
         },
@@ -15,9 +13,6 @@
         },
         "@dapp/module2": {
             "path": "module2"
-        },
-        "@dapp/network": {
-            "path": "network"
         }
     },
     "dependencies": {
@@ -37,8 +32,7 @@
             "params": {},
             "menus": []
         }
-    ],
-    
+    ],    
     "networks": [
         {
           "name": "Ethereum",
