@@ -7,8 +7,5 @@
     },
     "bin": {
         "cli": "tools/cli.js"
-    },
-    "dependencies": {
-        "@ijstech/cli": "^0.1.13"
     }
 }
