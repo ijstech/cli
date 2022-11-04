@@ -1,14 +1,16 @@
 {
-    "name": "demo",
+    "name": "@scom/demo-dapp",
     "version": "0.1.0",
     "engines": {
         "node": ">=18.0.0"
     },
+    "dependencies": {
+        "@ijstech/components": "^0.1.22",
+        "@ijstech/eth-contract": "^0.1.3"
+    },
     "devDependencies": {
         "@ijstech/cli": "^0.1.16",
-        "@ijstech/compiler": "^0.1.11",
-        "@ijstech/components": "^0.1.22",
-        "@ijstech/eth-wallet": "^0.1.20",
+        "@ijstech/compiler": "^0.1.14",
         "@scom/dapp": "^0.1.0"
     },
     "scripts": {
