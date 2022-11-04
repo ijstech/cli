@@ -2,16 +2,16 @@
     "env": "testnet",
     "logo": "logo",
     "main": "@scom/dapp",
-    "assets": "@dapp/assets",
+    "assets": "@modules/assets",
     "moduleDir": "modules",
     "modules": {
-        "@dapp/assets": {
+        "@modules/assets": {
             "path": "assets"
         },
-        "@dapp/module1": {
+        "@modules/module1": {
             "path": "module1"
         },
-        "@dapp/module2": {
+        "@modules/module2": {
             "path": "module2"
         }
     },
@@ -21,14 +21,14 @@
         {
             "caption": "Module 1",
             "url": "/module1",
-            "module": "@dapp/module1",
+            "module": "@modules/module1",
             "params": {},
             "menus": []
         },
         {
             "caption": "Module 2",
             "url": "/module2",
-            "module": "@dapp/module2",
+            "module": "@modules/module2",
             "params": {},
             "menus": []
         }

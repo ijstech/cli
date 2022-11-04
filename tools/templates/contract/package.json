@@ -7,7 +7,7 @@
         "@ijstech/eth-contract": "^0.1.3"
     },
     "devDependencies": {
-        "@ijstech/compiler": "^0.1.14",
+        "@ijstech/compiler": "^0.1.15",
         "@ijstech/eth-wallet": "0.1.19",
         "@types/mocha": "9.1.1",
         "@types/node": "18.8.4",
