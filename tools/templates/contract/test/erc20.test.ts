@@ -8,7 +8,13 @@ describe('##Contracts', function() {
     let accounts: string[];
     let wallet: Wallet;
     before(async ()=>{
-        let provider = Ganache.provider();
+        let provider = Ganache.provider({
+            logging: {
+                logger: {
+                    log: () => { }
+                }
+            }
+        });
         wallet = new Wallet(provider);
         accounts = await wallet.accounts;
         console.log(accounts);
