@@ -8,7 +8,7 @@
     },
     "devDependencies": {
         "@ijstech/compiler": "^0.1.15",
-        "@ijstech/eth-wallet": "^0.1.23",
+        "@ijstech/eth-wallet": "^0.1.24",
         "@types/mocha": "9.1.1",
         "@types/node": "18.8.4",
         "ganache": "7.5.0",
