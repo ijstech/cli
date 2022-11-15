@@ -1,4 +1,4 @@
-import {AppServer} from '@ijstech/app';
+import {AppServer} from '@ijstech/node';
 import Path from 'path';
 
 let app = new AppServer({
