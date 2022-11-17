@@ -5,12 +5,12 @@
         "node": ">=18.0.0"
     },
     "dependencies": {
-        "@ijstech/components": "^0.1.22",
+        "@ijstech/components": "^0.1.29",
         "@ijstech/eth-contract": "^0.1.4",
-        "@ijstech/eth-wallet": "^0.1.20"
+        "@ijstech/eth-wallet": "^0.1.26"
     },
     "devDependencies": {
-        "@ijstech/cli": "^0.1.19",
+        "@ijstech/cli": "^0.1.23",
         "@ijstech/compiler": "^0.1.15",
         "@scom/dapp": "^0.1.5"
     },
