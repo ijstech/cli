@@ -1,12 +1,12 @@
 {
-    "name": "@ijstech/cli",
-    "version": "0.1.23",
+    "name": "scom",
+    "version": "0.1.24",
     "repository": {
         "type": "git",
         "url": "https://github.com/ijstech/cli"
     },
     "bin": {
-        "cli": "tools/cli.js"
+        "scom": "tools/cli.js"
     },
     "dependencies": {
         "@ijstech/eth-wallet": "^0.1.26"
