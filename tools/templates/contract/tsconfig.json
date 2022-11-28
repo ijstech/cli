@@ -4,7 +4,8 @@
         "module": "commonjs",
         "esModuleInterop": true,
         "removeComments": true,
-        "declaration": false,
+        "declarationDir": "types",
+        "declaration": true,
         "outDir": "lib",
         "baseUrl": "."
     },

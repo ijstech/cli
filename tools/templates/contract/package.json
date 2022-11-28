@@ -2,13 +2,14 @@
     "name": "@scom/demo-contract",
     "version": "0.1.0",
     "main": "lib/index.js",
+    "pluginTypes": "pluginTypes/index.d.ts",
     "types": "types/index.d.ts",
     "dependencies": {
         "@ijstech/eth-contract": "^0.1.4"
     },
     "devDependencies": {
         "@ijstech/cli": "^0.1.23",
-        "@ijstech/compiler": "^0.1.15",
+        "@ijstech/compiler": "^0.1.19",
         "@ijstech/eth-wallet": "^0.1.24",
         "@scom/contract-deployer": "^0.1.8",
         "@scom/dapp": "^0.1.6",
