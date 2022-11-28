@@ -12,34 +12,23 @@ var progressHandler: any;
 export var DefaultDeployOptions: IDeployOptions = {
     initSupply: '10000'
 };
-function progress(msg: string){
-    if (typeof(progressHandler) == 'function'){
-        progressHandler(msg);
-    };
-}
-export async function deploy(wallet: IWallet, options?: IDeployOptions): Promise<IDeployResult>{
-    progress('Contracts deployment start');
+export async function deploy(wallet: IWallet, options: IDeployOptions, onProgress:(msg:string)=>void): Promise<IDeployResult>{
     let erc20 = new Contracts.ERC20(wallet);
-    progress('Deploy ERC20');
+    onProgress('Deploy ERC20');
     let address = await erc20.deploy();
-    progress('ERC20 deployed ' + address)
+    onProgress('ERC20 deployed ' + address)
     if (options && options.initSupply){
-        progress('Mint initial supply ' + options.initSupply)
+        onProgress('Mint initial supply ' + options.initSupply)
         let value = new BigNumber(options.initSupply);
         let result = await erc20.mint(value);
-        progress('Transaction # ' + result.transactionHash);
+        onProgress('Transaction # ' + result.transactionHash);
     };
-    progress('Contracts deployment finished');
     return {
         erc20: address
     };
 };
-export function onProgress(handler: any){
-    progressHandler = handler;
-};
 export default {
     Contracts,
     deploy,
-    DefaultDeployOptions,
-    onProgress
+    DefaultDeployOptions
 };
