@@ -5,12 +5,12 @@
     "pluginTypes": "pluginTypes/index.d.ts",
     "types": "types/index.d.ts",
     "dependencies": {
-        "@ijstech/eth-contract": "^0.1.4"
+        "@ijstech/eth-contract": "^0.1.8"
     },
     "devDependencies": {
-        "@ijstech/cli": "^0.1.23",
+        "@ijstech/cli": "^0.1.28",
         "@ijstech/compiler": "^0.1.19",
-        "@ijstech/eth-wallet": "^0.1.24",
+        "@ijstech/eth-wallet": "^0.1.29",
         "@scom/contract-deployer": "^0.1.8",
         "@scom/dapp": "^0.1.6",
         "@types/mocha": "9.1.1",
@@ -21,7 +21,7 @@
         "typescript": "4.8.4"
     },
     "scripts": {
-        "build": "rm -rf lib && rm -rf dist && rm -rf types && npm run build:contracts && npm run build:lib && npm run build:dist && npm run build:deployer",
+        "build": "rm -rf lib && rm -rf dist && rm -rf types && rm -rf pluginTypes && npm run build:contracts && npm run build:lib && npm run build:dist && npm run build:deployer",
         "build:contracts": "rm -rf src/contracts && sol2ts solconfig.json",
         "build:deployer": "rm -rf deployer && npx @ijstech/cli bundle deployer",
         "build:dist": "npx @ijstech/compiler",

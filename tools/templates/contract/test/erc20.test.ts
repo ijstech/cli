@@ -20,7 +20,9 @@ describe('##Contracts', function() {
         wallet.defaultAccount = accounts[0];
     })
     it('erc20', async function() {
-        let result = await deploy(wallet, {initSupply: '1000'});
+        let result = await deploy(wallet, {initSupply: '1000'}, (msg: string)=>{
+            console.dir(msg)
+        });
         let erc20 = new Contracts.ERC20(wallet, result.erc20);
         console.dir('#deployed ERC20 address: ' + result.erc20);
         await erc20.transfer({

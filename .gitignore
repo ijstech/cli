@@ -1,4 +1,8 @@
 dist
 tmp
+types
+pluginTypes
+tools/templates/contract/deployer
+lib
 node_modules
 package-lock.json
