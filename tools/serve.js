@@ -18,6 +18,8 @@ module.exports = function(port, distPath){
         else
             filePath = Path.join(distPath, url);   
         filePath = Path.resolve(filePath);    
+        if (!distPath.startsWith(filePath))
+            return;
         var extname = String(Path.extname(filePath)).toLowerCase();
         var mimeTypes = {
             '.html': 'text/html',
