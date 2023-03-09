@@ -6,9 +6,9 @@ const RootDir = process.cwd();
 module.exports = function(port, distPath){
     port = port || 8080;
     if (!distPath)
-        distPath = Path.relative(RootDir, './dist')
+        distPath = Path.resolve(RootDir, './dist')
     else if (!distPath.startsWith('/'))
-        distPath = Path.relative(RootDir, distPath);
+        distPath = Path.resolve(RootDir, distPath);
     http.createServer(function (request, response) {    
         var url = request.url;
         var filePath;
@@ -18,8 +18,10 @@ module.exports = function(port, distPath){
         else
             filePath = Path.join(distPath, url);   
         filePath = Path.resolve(filePath);    
-        if (!filePath.startsWith(distPath))
-            return;
+        if (!filePath.startsWith(distPath)){
+            response.writeHead(404, { 'Content-Type': 'text/html' });
+            return response.end('404 not found!', 'utf-8');
+        };
         var extname = String(Path.extname(filePath)).toLowerCase();
         var mimeTypes = {
             '.html': 'text/html',
