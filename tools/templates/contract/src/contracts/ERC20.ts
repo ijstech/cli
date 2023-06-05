@@ -1,16 +1,16 @@
 import {IWallet, Contract as _Contract, Transaction, TransactionReceipt, BigNumber, Event, IBatchRequestObj, TransactionOptions} from "@ijstech/eth-contract";
 import Bin from "./ERC20.json";
-
 export interface IAllowanceParams {param1:string;param2:string}
 export interface IApproveParams {spender:string;amount:number|BigNumber}
 export interface ITransferParams {recipient:string;amount:number|BigNumber}
 export interface ITransferFromParams {sender:string;recipient:string;amount:number|BigNumber}
 export class ERC20 extends _Contract{
+    static _abi: any = Bin.abi;
     constructor(wallet: IWallet, address?: string){
         super(wallet, address, Bin.abi, Bin.bytecode);
         this.assign()
     }
-    deploy(options?: number|BigNumber|TransactionOptions): Promise<string>{
+    deploy(options?: TransactionOptions): Promise<string>{
         return this.__deploy([], options);
     }
     parseApprovalEvent(receipt: TransactionReceipt): ERC20.ApprovalEvent[]{
