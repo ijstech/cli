@@ -1,5 +1,6 @@
 {    
     "env": "testnet",
+    "type": "dapp",
     "logo": "logo",
     "main": "@scom/dapp",
     "assets": "@modules/assets",
