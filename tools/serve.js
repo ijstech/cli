@@ -3,12 +3,51 @@ const fs = require('fs');
 const Path = require('path');
 const RootDir = process.cwd();
 
-module.exports = function(port, distPath){
+async function readFile(path) {
+    return new Promise((resolve, reject) => {
+        fs.readFile(path, 'utf8', (err, data) => {
+            if (err) reject(err);
+            else resolve(data);
+        });
+    });
+};
+async function readDir(path) {
+    return new Promise((resolve, reject) => {
+        fs.readdir(path, { withFileTypes: true }, (err, files) => { 
+            if (err) reject(err);
+            else resolve(files);
+        });
+    });
+};
+async function getDevData(path) {
+    let result = {};
+    let files = await readDir(path);
+    for (let file of files) {
+        if (file.isDirectory()) {
+            let r = await getDevData(Path.join(path, file.name));
+            for (let name in r) {
+                result[file.name + '/' + name] = r[name];
+            }
+        }
+        else {
+            if (file.name.endsWith('.json')){
+                result[file.name] = await readFile(Path.join(path, file.name))
+            }
+        }
+    };
+    return result;
+};
+let devData = {};
+module.exports = async function(port, distPath, devDataPath){
     port = port || 8080;
     if (!distPath)
         distPath = Path.resolve(RootDir, './dist')
-    else if (!distPath.startsWith('/'))
+    if (!distPath.startsWith('/'))
         distPath = Path.resolve(RootDir, distPath);
+    if (devDataPath){
+        devDataPath = Path.resolve(RootDir, devDataPath);
+        devData = await getDevData(devDataPath);
+    };
     http.createServer(function (request, response) {    
         var url = request.url;
         var filePath;
@@ -43,7 +82,7 @@ module.exports = function(port, distPath){
     
         var contentType = mimeTypes[extname] || 'application/octet-stream';
     
-        fs.readFile(filePath, function(error, content) {
+        fs.readFile(filePath, async function(error, content) {
             if (error) {
                 console.dir('File not found: ' + request.url);
                 if(error.code == 'ENOENT'){
@@ -56,6 +95,9 @@ module.exports = function(port, distPath){
                 }
             }
             else {
+                if (devDataPath && filePath.endsWith('index.html')){
+                    content = content.toString().replace('</head>', `<script>application.dev={paths:${JSON.stringify(devData)}}</script></head>`);
+                }
                 response.writeHead(200, { 'Content-Type': contentType });
                 response.end(content, 'utf-8');
             }

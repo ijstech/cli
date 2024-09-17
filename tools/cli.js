@@ -93,7 +93,7 @@ async function main(){
     }    
     else if (args[0] == 'serve'){
         let serve = require('./serve');
-        serve(args[1] || 8080, args[2] || 'dist');
+        serve(args[1] || 8080, args[2] || 'dist', args[3]);
     };
 };
 main();
