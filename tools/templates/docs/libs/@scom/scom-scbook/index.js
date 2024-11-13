@@ -24,7 +24,7 @@ define("@scom/scom-scbook/main.css.ts", ["require", "exports", "@ijstech/compone
         backgroundColor: Theme.docs.background,
         $nest: {
             'i-menu-item': {
-                color: Theme.text.primary
+                color: '#eaf2f7'
             },
             'a.internal-link': {
                 cursor: 'pointer',
@@ -87,10 +87,10 @@ define("@scom/scom-scbook/main.css.ts", ["require", "exports", "@ijstech/compone
                     },
                     a: {
                         display: 'inline-block',
-                        color: Theme.colors.info.main,
+                        color: '#55f',
                         $nest: {
                             '&:hover': {
-                                color: Theme.colors.info.dark,
+                                color: '#55f',
                             }
                         }
                     }
@@ -286,11 +286,11 @@ define("@scom/scom-scbook/main.css.ts", ["require", "exports", "@ijstech/compone
                                 paddingBottom: '4px',
                                 $nest: {
                                     a: {
-                                        color: Theme.colors.info.main,
+                                        color: 'rgb(29, 138, 237)',
                                         lineHeight: '20px',
                                         $nest: {
                                             '&:hover': {
-                                                color: Theme.colors.info.dark,
+                                                color: 'rgb(26, 69, 109)',
                                                 textDecoration: 'underline',
                                             },
                                         },
@@ -352,19 +352,9 @@ define("@scom/scom-scbook/main.css.ts", ["require", "exports", "@ijstech/compone
                                         whiteSpace: 'pre-wrap',
                                         padding: '1rem',
                                         fontSize: '12px',
-                                    }
+                                    },
                                 },
                             },
-                            'code:not(.hljs)': {
-                                background: Theme.colors.secondary.light,
-                                color: `${Theme.input.fontColor} !important`,
-                                borderRadius: '0.25rem',
-                                padding: '1px 0.375rem',
-                                minWidth: '1.625rem',
-                                boxShadow: Theme.shadows[0],
-                                fontSize: '0.875rem',
-                                lineHeight: '1.25rem',
-                            }
                             // 'pre:hover': {
                             //   $nest: {
                             //     'i-button': {
@@ -521,7 +511,7 @@ define("@scom/scom-scbook/main.css.ts", ["require", "exports", "@ijstech/compone
                 maxHeight: 'calc(100vh - 120px)',
                 margin: 0,
                 paddingTop: '10px',
-                borderLeft: `1px solid ${Theme.divider}`,
+                borderLeft: '1px solid #e0e0e0',
                 $nest: {
                     '@media (min-width: 1060px)': {
                         $nest: {
@@ -542,11 +532,11 @@ define("@scom/scom-scbook/main.css.ts", ["require", "exports", "@ijstech/compone
                 right: '30px',
                 maxHeight: 'calc(100vh - 120px)',
                 margin: 0,
-                backgroundColor: Theme.docs.background,
-                color: Theme.docs.text0,
+                backgroundColor: '#fff',
+                color: '#222',
                 borderRadius: '5px',
                 padding: '16px',
-                border: `1px solid ${Theme.divider}`,
+                border: '1px solid #ececec',
                 $nest: {
                     '@media (min-width: 1060px)': {
                         $nest: {
@@ -632,23 +622,24 @@ define("@scom/scom-scbook/header.css.ts", ["require", "exports", "@ijstech/compo
             '& > .header': {
                 flexShrink: 0,
                 width: '100%',
-                height: '64px',
+                height: '70px',
                 padding: '8px 0',
-                borderBottom: `1px solid ${Theme.divider}`,
+                borderBottom: '1px solid #ebeff3',
                 zIndex: 100,
                 transform: 'translateZ(0)',
-                backgroundColor: Theme.docs.background,
+                // backgroundColor: Theme.docs.background,
+                backgroundColor: '#151515',
                 $nest: {
                     '.menu-item': {
                         $nest: {
                             '&:hover': {
-                                color: Theme.action.hover,
+                                color: '#fff',
                             },
                             '&.menu-selected': {
-                                color: Theme.action.selected,
+                                color: '#eaf2f7',
                             },
                             '&.menu-selected:hover': {
-                                color: Theme.action.hover,
+                                color: '#fff',
                             }
                         }
                     }
@@ -730,7 +721,7 @@ define("@scom/scom-scbook/header.css.ts", ["require", "exports", "@ijstech/compo
             },
             '#logoText': {
                 width: '259px',
-                borderRight: `1px solid ${Theme.divider}`,
+                borderRight: '1px solid #E0E0E0',
                 marginLeft: '20px',
                 display: 'none',
                 $nest: {
@@ -748,7 +739,7 @@ define("@scom/scom-scbook/header.css.ts", ["require", "exports", "@ijstech/compo
                 marginRight: '6px',
                 $nest: {
                     input: {
-                        backgroundColor: Theme.input.background,
+                        backgroundColor: 'rgb(236, 236, 236)',
                     },
                 },
             },
@@ -764,7 +755,7 @@ define("@scom/scom-scbook/header.css.ts", ["require", "exports", "@ijstech/compo
                                         opacity: 1,
                                         $nest: {
                                             '.title': {
-                                                color: Theme.action.hover,
+                                                color: '#fff',
                                             },
                                         },
                                     },
@@ -772,7 +763,7 @@ define("@scom/scom-scbook/header.css.ts", ["require", "exports", "@ijstech/compo
                                         fontSize: '15px',
                                         fontWeight: 500,
                                         lineHeight: '24px',
-                                        color: Theme.text.primary,
+                                        color: 'rgba(234, 242, 247, 1)',
                                     },
                                 },
                             },
@@ -809,15 +800,17 @@ define("@scom/scom-scbook/search.css.ts", ["require", "exports", "@ijstech/compo
                 top: '50%',
                 left: '10px',
                 display: 'inline-block',
-                width: '1rem',
-                height: '1rem',
-                transform: 'translateY(-50%)'
+                width: '18px',
+                height: '18px',
+                transform: 'translateY(-50%)',
             },
             input: {
                 position: 'relative',
                 verticalAlign: 'top',
                 height: '2.5rem',
-                border: 'none',
+                background: 'none',
+                border: '1px solid #c5d1db',
+                color: '#28333d',
                 fontWeight: 400,
                 fontSize: '15px',
                 borderRadius: '20px',
@@ -825,14 +818,11 @@ define("@scom/scom-scbook/search.css.ts", ["require", "exports", "@ijstech/compo
                 outline: 'none',
                 transition: 'width .5s ease',
                 width: '170px',
-                boxShadow: Theme.shadows[1],
                 // responsive
                 padding: '12px 8px 8px 38px',
-                background: Theme.input.background,
-                color: Theme.input.fontColor,
                 $nest: {
                     '&::placeholder': {
-                        color: Theme.text.disabled,
+                        color: '#28333d',
                         opacity: 1,
                     },
                     '&:focus': {
@@ -854,8 +844,8 @@ define("@scom/scom-scbook/search.css.ts", ["require", "exports", "@ijstech/compo
                 margin: '6px 0 0',
                 border: 'none',
                 borderRadius: '1rem',
-                boxShadow: Theme.shadows[1],
-                background: Theme.background.modal,
+                boxShadow: '0 4px 16px rgb(0 0 0 / 25%)',
+                background: '#fff',
                 $nest: {
                     '&.show': {
                         display: 'block',
@@ -867,7 +857,7 @@ define("@scom/scom-scbook/search.css.ts", ["require", "exports", "@ijstech/compo
                 width: '100%',
                 whiteSpace: 'normal',
                 border: 'none',
-                color: Theme.text.primary,
+                color: '#333',
                 cursor: 'pointer',
                 overflow: 'hidden',
                 $nest: {
@@ -882,8 +872,8 @@ define("@scom/scom-scbook/search.css.ts", ["require", "exports", "@ijstech/compo
                     },
                     '.column': {
                         display: 'table-cell',
-                        borderRight: `1px solid ${Theme.divider}`,
-                        color: Theme.text.primary,
+                        borderRight: '1px solid rgba(57,57,57,.3)',
+                        color: '#555',
                         overflow: 'hidden',
                         padding: '5px 7px 5px 5px',
                         textAlign: 'right',
@@ -909,7 +899,7 @@ define("@scom/scom-scbook/search.css.ts", ["require", "exports", "@ijstech/compo
                         overflow: 'hidden',
                     },
                     '.highlight': {
-                        color: Theme.colors.info.main,
+                        color: '#55f',
                         padding: 0,
                         background: 'none',
                         fontWeight: 600,
@@ -923,7 +913,6 @@ define("@scom/scom-scbook/search.tsx", ["require", "exports", "@ijstech/componen
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Search = void 0;
-    const Theme = components_4.Styles.Theme.ThemeVars;
     const __dirname = components_4.application.currentModuleDir;
     components_4.RequireJS.config({
         paths: {
@@ -1037,7 +1026,7 @@ define("@scom/scom-scbook/search.tsx", ["require", "exports", "@ijstech/componen
             if (!this.wrapperElm) {
                 this.wrapperElm = this.createElement('span', this);
                 this.wrapperElm.classList.add('search', 'autocomplete');
-                const icon = new components_4.Icon(this, { name: 'search', fill: Theme.input.fontColor });
+                const icon = new components_4.Icon(this, { name: 'search', fill: '#55f' });
                 this.wrapperElm.appendChild(icon);
                 this.inputElm = this.createElement('input', this.wrapperElm);
                 this.inputElm.setAttribute('placeholder', 'Search');
@@ -1085,16 +1074,14 @@ define("@scom/scom-scbook/header.tsx", ["require", "exports", "@ijstech/componen
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.DocsHeader = exports.Search = void 0;
     Object.defineProperty(exports, "Search", { enumerable: true, get: function () { return search_1.Search; } });
-    const Theme = components_5.Styles.Theme.ThemeVars;
-    const moonIcon = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 20 20"><path fill="%23326e81" d="M4.2 2.5l-.7 1.8-1.8.7 1.8.7.7 1.8.6-1.8L6.7 5l-1.9-.7-.6-1.8zm15 8.3a6.7 6.7 0 11-6.6-6.6 5.8 5.8 0 006.6 6.6z"/></svg>';
-    const sunIcon = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 20 20"><path fill="%23326e81" d="M9.305 1.667V3.75h1.389V1.667h-1.39zm-4.707 1.95l-.982.982L5.09 6.072l.982-.982-1.473-1.473zm10.802 0L13.927 5.09l.982.982 1.473-1.473-.982-.982zM10 5.139a4.872 4.872 0 00-4.862 4.86A4.872 4.872 0 0010 14.862 4.872 4.872 0 0014.86 10 4.872 4.872 0 0010 5.139zm0 1.389A3.462 3.462 0 0113.471 10a3.462 3.462 0 01-3.473 3.472A3.462 3.462 0 016.527 10 3.462 3.462 0 0110 6.528zM1.665 9.305v1.39h2.083v-1.39H1.666zm14.583 0v1.39h2.084v-1.39h-2.084zM5.09 13.928L3.616 15.4l.982.982 1.473-1.473-.982-.982zm9.82 0l-.982.982 1.473 1.473.982-.982-1.473-1.473zM9.305 16.25v2.083h1.389V16.25h-1.39z"/></svg>';
+    const moonIcon = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 20 20"><path fill="%23fff" d="M4.2 2.5l-.7 1.8-1.8.7 1.8.7.7 1.8.6-1.8L6.7 5l-1.9-.7-.6-1.8zm15 8.3a6.7 6.7 0 11-6.6-6.6 5.8 5.8 0 006.6 6.6z"/></svg>';
+    const sunIcon = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 20 20"><path fill="%23fff" d="M9.305 1.667V3.75h1.389V1.667h-1.39zm-4.707 1.95l-.982.982L5.09 6.072l.982-.982-1.473-1.473zm10.802 0L13.927 5.09l.982.982 1.473-1.473-.982-.982zM10 5.139a4.872 4.872 0 00-4.862 4.86A4.872 4.872 0 0010 14.862 4.872 4.872 0 0014.86 10 4.872 4.872 0 0010 5.139zm0 1.389A3.462 3.462 0 0113.471 10a3.462 3.462 0 01-3.473 3.472A3.462 3.462 0 016.527 10 3.462 3.462 0 0110 6.528zM1.665 9.305v1.39h2.083v-1.39H1.666zm14.583 0v1.39h2.084v-1.39h-2.084zM5.09 13.928L3.616 15.4l.982.982 1.473-1.473-.982-.982zm9.82 0l-.982.982 1.473 1.473.982-.982-1.473-1.473zM9.305 16.25v2.083h1.389V16.25h-1.39z"/></svg>';
     let DocsHeader = class DocsHeader extends components_5.Module {
         constructor(parent, options) {
             super();
             this.menuItem = [];
             this.searchIndex = [];
             this._showSearch = true;
-            this._theme = 'dark';
         }
         get menu() {
             return this._menu;
@@ -1185,19 +1172,17 @@ define("@scom/scom-scbook/header.tsx", ["require", "exports", "@ijstech/componen
                 return '# There was error with your response, please check the details and try again';
             return response.text();
         }
-        onChangeTheme(target, event) {
-            if (this._theme === 'light') {
-                this.btnLight.background.color = 'transparent';
+        btnChangeThemeClick(target, event) {
+            if (this.btnChangeTheme.checked) {
+                this.btnChangeTheme.checked = false;
+                components_5.Styles.Theme.applyTheme(components_5.Styles.Theme.defaultTheme);
+                components_5.application.EventBus.dispatch("scbookThemeChanged" /* EventId.scbookThemeChanged */, "light");
             }
             else {
-                this.btnDark.background.color = 'transparent';
+                this.btnChangeTheme.checked = true;
+                components_5.Styles.Theme.applyTheme(components_5.Styles.Theme.darkTheme);
+                components_5.application.EventBus.dispatch("scbookThemeChanged" /* EventId.scbookThemeChanged */, "dark");
             }
-            target.background.color = Theme.action.hoverBackground;
-            const theme = target.tag;
-            this._theme = theme;
-            components_5.Styles.Theme.applyTheme(theme === 'light' ? components_5.Styles.Theme.defaultTheme : components_5.Styles.Theme.darkTheme);
-            document.body.style.setProperty('--theme', theme);
-            components_5.application.EventBus.dispatch("scbookThemeChanged" /* EventId.scbookThemeChanged */, theme);
         }
         async init() {
             super.init();
@@ -1345,15 +1330,16 @@ define("@scom/scom-scbook/header.tsx", ["require", "exports", "@ijstech/componen
                     this.$render("i-hstack", null,
                         this.$render("i-image", { id: "imgLogo", class: "logo" })),
                     this.$render("i-panel", { id: "btnMenu", onClick: this.toggleMenu },
-                        this.$render("i-icon", { name: "bars", fill: Theme.text.primary })),
+                        this.$render("i-icon", { name: "bars", fill: "#fff" })),
                     this.$render("i-menu", { id: "scbookMenu", width: "100%", data: this.menuItem }),
                     this.$render("i-panel", { id: "btnEdit", onClick: this.toggleEditMode, class: "hidden" },
-                        this.$render("i-icon", { name: "pencil-alt", fill: Theme.text.primary })),
+                        this.$render("i-icon", { name: "pencil-alt", fill: "#fff" })),
                     this.$render("i-panel", { class: "search" },
                         this.$render("i-scom-scbook-search", { id: "searchBar" }),
-                        this.$render("i-hstack", { horizontalAlignment: 'center', verticalAlignment: 'center', gap: "0.25rem", padding: { top: '0.25rem', right: '0.35rem', bottom: '0.25rem', left: '0.35rem' }, border: { radius: '9999px', color: Theme.divider, width: '1px', style: 'solid' } },
-                            this.$render("i-button", { id: "btnLight", width: '1.25rem', height: '1.25rem', border: { radius: '50%' }, background: { color: 'transparent' }, tag: "light", boxShadow: 'none', icon: { image: { url: sunIcon, width: '1rem', height: '1rem', display: 'flex' } }, onClick: this.onChangeTheme }),
-                            this.$render("i-button", { id: "btnDark", width: '1.25rem', height: '1.25rem', border: { radius: '50%' }, background: { color: Theme.action.hoverBackground }, boxShadow: 'none', tag: "dark", icon: { image: { url: moonIcon, width: '1rem', height: '1rem', display: 'flex' } }, onClick: this.onChangeTheme }))))));
+                        this.$render("i-switch", { id: "btnChangeTheme", checkedThumbColor: "#fff", uncheckedThumbColor: "#fff", 
+                            // checkedThumbIcon={moonIcon}
+                            // uncheckedThumbIcon={sunIcon}
+                            checkedTrackColor: "#070707", uncheckedTrackColor: "#c5c5c5", onClick: this.btnChangeThemeClick })))));
         }
     };
     DocsHeader = __decorate([
@@ -1365,25 +1351,20 @@ define("@scom/scom-scbook/navigator.css.ts", ["require", "exports", "@ijstech/co
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     const Theme = components_6.Styles.Theme.ThemeVars;
+    // const scbookDividerColorDark = '#374151';
+    // const scbookDividerColorLight = 'rgba(211, 220, 228, 1.00)';
+    // const scbookActiveTreenodeColorDark = 'rgba(133, 163, 224, 0.1);';
+    // const scbookActiveTreenodeColorLight = '#EBEBEB';
     components_6.Styles.cssRule('i-scom-scbook-navigator', {
         display: 'block',
         flex: '0 0 280px',
         position: 'sticky',
-        top: '64px',
-        height: 'calc(100vh - 64px)',
+        top: '70px',
+        height: 'calc(100vh - 70px)',
+        // borderRight: '1px solid #ececec',
         overflowY: 'auto',
         zIndex: '99',
-        borderRight: `1px solid ${Theme.divider}`,
         $nest: {
-            "::-webkit-scrollbar": {
-                backgroundColor: Theme.divider,
-                width: 8,
-                height: 8,
-            },
-            "::-webkit-scrollbar-thumb": {
-                backgroundColor: Theme.background.default,
-                borderRadius: 8
-            },
             '&.hidden': {
                 display: 'none',
             },
@@ -1392,7 +1373,7 @@ define("@scom/scom-scbook/navigator.css.ts", ["require", "exports", "@ijstech/co
                 width: '75% !important',
                 left: '0',
                 top: '80px',
-                background: Theme.docs.background,
+                background: 'white',
                 height: '90% !important',
             },
             'i-panel': {
@@ -1405,8 +1386,7 @@ define("@scom/scom-scbook/navigator.css.ts", ["require", "exports", "@ijstech/co
                 whiteSpace: 'nowrap',
                 position: 'sticky',
                 bottom: '0px',
-                background: Theme.background.paper,
-                borderTop: `1px solid ${Theme.divider}`,
+                background: '#ECEEF1',
                 height: '50px',
                 padding: '10px',
                 $nest: {
@@ -1415,10 +1395,27 @@ define("@scom/scom-scbook/navigator.css.ts", ["require", "exports", "@ijstech/co
                         width: 'auto',
                         marginRight: '10px',
                     },
+                    'i-label > div': {
+                        color: 'rgb(136, 153, 168)',
+                        fontSize: '16px',
+                    },
                 },
             },
-            'i-tree-view i-tree-node i-tree-node': {
-                borderLeft: `1px solid ${Theme.divider}`
+            '&.dark': {
+                borderRight: `1px solid ${Theme.divider}`,
+                $nest: {
+                    'i-tree-view i-tree-node i-tree-node': {
+                        borderLeft: `1px solid ${Theme.divider}`
+                    },
+                }
+            },
+            '&.light': {
+                borderRight: `1px solid ${Theme.divider}`,
+                $nest: {
+                    'i-tree-view i-tree-node i-tree-node': {
+                        borderLeft: `1px solid ${Theme.divider}`
+                    },
+                }
             },
             'i-tree-view.i-tree-view': {
                 height: '100%',
@@ -1437,36 +1434,44 @@ define("@scom/scom-scbook/navigator.css.ts", ["require", "exports", "@ijstech/co
                                 minHeight: '32px',
                                 border: '1px solid transparent',
                                 $nest: {
-                                    '&:hover .i-tree-node_label': {
-                                        color: Theme.action.hover
+                                    '&:hover': {
+                                        backgroundColor: Theme.action.hoverBackground,
+                                        color: Theme.action.hover,
                                     },
                                     label: {
                                         lineHeight: '22px',
                                         padding: '8px 0 8px 16px',
-                                        color: Theme.docs.text0,
+                                        color: Theme.text.disabled,
                                     },
                                 },
                             },
-                            "&.active": {
+                            '&.dark': {
                                 $nest: {
-                                    '> .i-tree-node_content': {
-                                        backgroundColor: 'transparent',
+                                    '&.active': {
                                         $nest: {
-                                            "&:hover": {
-                                                backgroundColor: Theme.action.selectedBackground,
-                                                color: Theme.action.selected
+                                            '> .i-tree-node_content': {
+                                                backgroundColor: Theme.action.selectedBackground
                                             },
-                                            '&:hover .i-tree-node_label': {
-                                                color: Theme.action.selected
-                                            }
-                                        }
-                                    }
+                                        },
+                                    },
+                                }
+                            },
+                            '&.light': {
+                                $nest: {
+                                    '&.active': {
+                                        $nest: {
+                                            '> .i-tree-node_content': {
+                                                backgroundColor: Theme.action.selectedBackground,
+                                            },
+                                        },
+                                    },
                                 }
                             },
                             '.i-tree-node_children': {
                                 marginLeft: '16px',
                                 $nest: {
                                     'i-tree-node': {
+                                        // borderLeft: `1px solid #00ff00`, // first
                                         $nest: {
                                             '.i-tree-node_content': {
                                                 $nest: {
@@ -1482,7 +1487,22 @@ define("@scom/scom-scbook/navigator.css.ts", ["require", "exports", "@ijstech/co
                             '&.is-checked': {
                                 $nest: {
                                     '> .i-tree-node_content': {
-                                        color: Theme.action.selected
+                                        // backgroundColor: Theme.action.hoverBackground,
+                                        color: Theme.docs.text0
+                                    },
+                                },
+                            },
+                            '&.active': {
+                                $nest: {
+                                    '> .i-tree-node_content': {
+                                        // backgroundColor: Theme.action.activeBackground,
+                                        border: `1px solid ${Theme.divider}`,
+                                        // borderLeft: '0px',
+                                        $nest: {
+                                            label: {
+                                                color: Theme.docs.text0
+                                            }
+                                        },
                                     },
                                 },
                             },
@@ -1502,24 +1522,13 @@ define("@scom/scom-scbook/navigator.css.ts", ["require", "exports", "@ijstech/co
                                     '.i-tree-node_content': {
                                         backgroundColor: 'inherit'
                                     },
-                                    // '.i-tree-node_label': {
-                                    //   color: '#8899a8'
-                                    // }
+                                    '.i-tree-node_label': {
+                                        color: '#8899a8'
+                                    }
                                 }
                             },
                         },
                     },
-                    '.i-tree-node_children': {
-                        $nest: {
-                            'i-tree-node.active': {
-                                $nest: {
-                                    '> .i-tree-node_content': {
-                                        borderLeft: `1px solid ${Theme.action.selected}`
-                                    },
-                                }
-                            }
-                        }
-                    }
                 },
             },
             // '.tree-child-node': {
@@ -1541,13 +1550,16 @@ define("@scom/scom-scbook/navigator.css.ts", ["require", "exports", "@ijstech/co
             //     },
             //   },
             // },
-            // '&::-webkit-scrollbar-track': {
-            //   background: '#f1f1f1' /* color of the tracking area */,
-            // },
-            // '&::-webkit-scrollbar-thumb': {
-            //   backgroundColor: '#aaa' /* color of the scroll thumb */,
-            //   borderRadius: '10px' /* roundness of the scroll thumb */,
-            // },
+            '&::-webkit-scrollbar': {
+                width: '8px',
+            },
+            '&::-webkit-scrollbar-track': {
+                background: '#f1f1f1' /* color of the tracking area */,
+            },
+            '&::-webkit-scrollbar-thumb': {
+                backgroundColor: '#aaa' /* color of the scroll thumb */,
+                borderRadius: '10px' /* roundness of the scroll thumb */,
+            },
             '&.hide': {
                 maxWidth: 0,
                 opacity: 0,
@@ -2446,7 +2458,6 @@ define("@scom/scom-scbook/main.tsx", ["require", "exports", "@ijstech/components
             }
             if (anchorRegex.test(content)) {
                 content = content.replace(anchorRegex, (_, __, href, text) => {
-                    console.log('=====', href);
                     let slug = this.docsPaging.currentNode.slug;
                     if (slug.startsWith('#/'))
                         slug = slug.substr(2);
