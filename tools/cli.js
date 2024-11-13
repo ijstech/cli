@@ -84,6 +84,9 @@ async function main(){
         else if (args[1] == 'dapp'){
             copyDir(Path.join(__dirname, 'templates/dapp'), RootDir)
         }
+        else if (args[1] == 'docs') {
+            copyDir(Path.join(__dirname, 'templates/docs'), RootDir)
+        }
         let packPath = Path.join(RootDir, 'package.json');
         if (args[2] && Fs.existsSync(packPath)){
             let pack = JSON.parse(Fs.readFileSync(packPath));
