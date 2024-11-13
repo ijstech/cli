@@ -65,17 +65,19 @@ declare module "@scom/scom-scbook/header.tsx" {
     export class DocsHeader extends Module {
         private searchBar;
         private btnChangeTheme;
+        private btnLight;
+        private btnDark;
+        private scbookMenu;
+        private logoText;
+        private pnlContainer;
         private _menu;
         private imgLogo;
         private menuItem;
-        private scbookMenu;
-        private logoAltText;
-        private logoText;
         private searchIndex;
         private _baseUrl;
-        private pnlContainer;
         private _maxWidth;
         private _showSearch;
+        private _theme;
         constructor(parent: Control, options: any);
         get menu(): any[];
         set menu(value: any[]);
@@ -87,7 +89,7 @@ declare module "@scom/scom-scbook/header.tsx" {
         set showSearch(value: boolean);
         private loadSearchIndex;
         private loadMarkdown;
-        btnChangeThemeClick(target: Control, event: Event): void;
+        private onChangeTheme;
         init(): Promise<void>;
         checkLogoExists(entrypoint: string, logoPath: string): Promise<void>;
         loadFile(path: string): Promise<Response>;
