@@ -93,8 +93,8 @@ async function main(){
                 Fs.mkdirSync(targetPath);
                 copyDir(sourcePath, targetPath)
             } else {
-                const scconfigPath = 'scconfig.json';
-                copyDir(sourcePath, targetPath, [scconfigPath])
+                const ignoreFiles = ['scconfig.json', 'data'];
+                copyDir(sourcePath, targetPath, ignoreFiles)
             }
         }
         let packPath = Path.join(RootDir, 'package.json');
