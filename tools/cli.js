@@ -3,9 +3,11 @@ const Fs = require('fs');
 const Path = require('path');
 const RootDir = process.cwd();
 
-async function copyDir(source, target ) {    
+async function copyDir(source, target, ignoreFiles) {    
     let files = Fs.readdirSync(source);
     files.forEach(async function (file) {
+        if (ignoreFiles && ignoreFiles.includes(file))
+            return;
         if (Fs.lstatSync(Path.join(source, file)).isDirectory())
             Fs.cpSync(Path.join(source, file), Path.join(target, file), {recursive: true})
         else
@@ -85,7 +87,15 @@ async function main(){
             copyDir(Path.join(__dirname, 'templates/dapp'), RootDir)
         }
         else if (args[1] == 'docs') {
-            copyDir(Path.join(__dirname, 'templates/docs'), RootDir)
+            const targetPath = Path.join(RootDir, 'docs');
+            const sourcePath = Path.join(__dirname, 'templates/docs');
+            if (!Fs.existsSync(targetPath)) {
+                Fs.mkdirSync(targetPath);
+                copyDir(sourcePath, targetPath)
+            } else {
+                const scconfigPath = 'scconfig.json';
+                copyDir(sourcePath, targetPath, [scconfigPath])
+            }
         }
         let packPath = Path.join(RootDir, 'package.json');
         if (args[2] && Fs.existsSync(packPath)){
