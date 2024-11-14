@@ -1,8 +1,7 @@
-dist
-tmp
-types
-pluginTypes
 tools/templates/contract/deployer
-lib
+tools/templates/contract/flattened
+tools/templates/contract/dist
+tools/templates/contract/lib
+tools/templates/contract/pluginTypes
 node_modules
 package-lock.json
