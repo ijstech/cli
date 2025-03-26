@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const Fs = require('fs');
 const Path = require('path');
+const {runTsFile} = require('./tsRunner');
 const RootDir = process.cwd();
 
 async function copyDir(source, target, ignoreFiles) {    
@@ -33,10 +34,24 @@ async function getLocalPackagePath(name) {
     }
     else
         return '';
-}
+};
+function resolveFilePaths(filenames) {
+    return filenames.map(filename => 
+        Path.resolve(RootDir, filename)
+    );
+};
 async function main(){
     let args = process.argv.slice(2);
-    if (args[0] == 'bundle'){
+    if (args[0] == 'test'){
+        args = process.argv.slice(3);
+        if (args.length === 0) {
+            console.error('Please provide a TypeScript file or pattern (e.g., "*.test.ts") to run');
+            process.exit(1);
+        };
+        args = resolveFilePaths(args);
+        runTsFile(args);
+    }
+    else if (args[0] == 'bundle'){
         if (args[1] == 'deployer'){
             let packageJson = JSON.parse(Fs.readFileSync(Path.join(RootDir, 'package.json')));
             let packagePath = Path.dirname(require.resolve('@scom/contract-deployer'));
@@ -74,7 +89,10 @@ async function main(){
         }
     }
     else if (args[0] == 'init'){
-        if (args[1] == 'worker'){
+        if (args[1] == 'lib'){
+            copyDir(Path.join(__dirname, 'templates/lib'), RootDir)
+        }
+        else if (args[1] == 'worker'){
             copyDir(Path.join(__dirname, 'templates/worker'), RootDir)
         }
         else if (args[1] == 'router'){
