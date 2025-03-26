@@ -1,11 +1,21 @@
 {
     "name": "@ijstech/cli",
-    "version": "0.1.38",
+    "version": "0.1.41",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
     "repository": {
         "type": "git",
         "url": "https://github.com/ijstech/cli"
     },
     "bin": {
         "cli": "tools/cli.js"
+    },
+    "scripts": {
+        "build": "rm -rf lib && tsc && cp -r lib/tsRunner.js tools/tsRunner.js"
+    },
+    "devDependencies": {
+        "@types/node": "^20.11.25",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.4.5"
     }
 }
