@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 const Fs = require('fs');
 const Path = require('path');
-const {runTsFile} = require('./tsRunner');
 const RootDir = process.cwd();
 
 async function copyDir(source, target, ignoreFiles) {    
@@ -49,6 +48,7 @@ async function main(){
             process.exit(1);
         };
         args = resolveFilePaths(args);
+        const {runTsFile} = require('./tsRunner');
         runTsFile(args);
     }
     else if (args[0] == 'bundle'){
