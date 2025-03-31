@@ -1,10 +1,10 @@
 {
     "name": "demo-lib",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "main": "lib/index.js",
     "types": "types/index.d.ts",
     "plugin": "dist/index.js",
-    "pluginTypes": "dist/index.d.ts",
+    "pluginTypes": "pluginTypes/index.d.ts",
     "engines": {
         "node": ">=18.0.0"
     },
@@ -13,8 +13,8 @@
         "build": "rm -rf dist && rm -rf lib && rm -rf types && rm -rf pluginTypes && npx @ijstech/compiler"
     },
     "devDependencies": {
-        "@ijstech/cli": "^0.1.38",
-        "@ijstech/compiler": "^0.1.107",
+        "@ijstech/cli": "^0.1.43",
+        "@ijstech/compiler": "^0.1.108",
         "@types/node": "^20.11.25"
     }
 }
