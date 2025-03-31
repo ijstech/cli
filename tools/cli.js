@@ -34,6 +34,18 @@ async function getLocalPackagePath(name) {
     else
         return '';
 };
+function addGitIgnore() {
+    let gitignorePath = Path.join(RootDir, '.gitignore');
+    if (!Fs.existsSync(gitignorePath)) {
+        Fs.writeFileSync(gitignorePath, '/node_modules/\n/package-lock.json');
+    }
+};
+function addNpmIgnore() {
+    let npmignorePath = Path.join(RootDir, '.npmignore');
+    if (!Fs.existsSync(npmignorePath)) {
+        Fs.writeFileSync(npmignorePath, '/src\n/test');
+    }
+};
 function resolveFilePaths(filenames) {
     return filenames.map(filename => 
         Path.resolve(RootDir, filename)
@@ -90,19 +102,27 @@ async function main(){
     }
     else if (args[0] == 'init'){
         if (args[1] == 'lib'){
-            copyDir(Path.join(__dirname, 'templates/lib'), RootDir)
+            copyDir(Path.join(__dirname, 'templates/lib'), RootDir);
+            addGitIgnore();
+            addNpmIgnore();
         }
         else if (args[1] == 'worker'){
-            copyDir(Path.join(__dirname, 'templates/worker'), RootDir)
+            copyDir(Path.join(__dirname, 'templates/worker'), RootDir);
+            addGitIgnore();
+            addNpmIgnore();
         }
         else if (args[1] == 'router'){
-            copyDir(Path.join(__dirname, 'templates/router'), RootDir)
+            copyDir(Path.join(__dirname, 'templates/router'), RootDir);
+            addGitIgnore();
+            addNpmIgnore();
         }
         else if (args[1] == 'contract'){
-            copyDir(Path.join(__dirname, 'templates/contract'), RootDir)
+            copyDir(Path.join(__dirname, 'templates/contract'), RootDir);
+            addGitIgnore();
+            addNpmIgnore();
         }
         else if (args[1] == 'dapp'){
-            copyDir(Path.join(__dirname, 'templates/dapp'), RootDir)
+            copyDir(Path.join(__dirname, 'templates/dapp'), RootDir);
         }
         else if (args[1] == 'docs') {
             const targetPath = Path.join(RootDir, 'docs');
