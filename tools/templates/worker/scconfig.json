@@ -2,7 +2,7 @@
     "type": "worker",
     "workers": {
         "worker1": {
-            "module": "index.ts",
+            "module": "worker1.ts",
             "params": {
                 "param1": "default worker1 session param value"
             },
