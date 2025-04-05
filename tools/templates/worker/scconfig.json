@@ -1,4 +1,5 @@
 {
+    "type": "worker",
     "workers": {
         "worker1": {
             "module": "index.ts",

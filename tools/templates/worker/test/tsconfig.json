@@ -9,12 +9,12 @@
         "declaration": false,
         "baseUrl": ".",
         "outDir": "lib",
-        "paths": {
-            "@ijstech1/*":["*", "./node_modules/@ijstech/node/packages/*"],
-            "@ijstech/node":["*", "./repos/node"],
-            "@ijstech/*":["*", "./repos/node/packages/*"]
+        "paths": {            
+            "@ijstech/node":["*", "../node_modules/@ijstech/node"],
+            "@ijstech/cli": ["*", "../node_modules/@ijstech/cli"],
+            "@ijstech/*":["*", "../node_modules/@ijstech/node/packages/*"]
         }
     },
-    "include": ["src"],
+    "include": ["."],
     "exclude": ["node_modules"]
 }
