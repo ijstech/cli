@@ -1,8 +1,8 @@
 {
     "name": "@ijstech/cli",
-    "version": "0.1.45",
+    "version": "0.1.46",
     "main": "lib/index.js",
-    "types": "lib/index.d.ts",
+    "types": "types/index.d.ts",
     "repository": {
         "type": "git",
         "url": "https://github.com/ijstech/cli"
