@@ -4,7 +4,7 @@
         "worker1": {
             "module": "worker1.ts",
             "params": {
-                "param1": "default worker1 session param value"
+                "param1": "Param1 test value"
             },
             "plugins": {
                 "cache": false,
@@ -21,7 +21,7 @@
             "id": "job:worker1",
             "cron": "*/4 * * * * *", 
             "worker": "worker1",
-            "params": {"param2": "worker param value"}
+            "params": {"param2": "param2 test value"}
         }
     ]
 }

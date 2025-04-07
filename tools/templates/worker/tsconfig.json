@@ -10,9 +10,8 @@
         "baseUrl": ".",
         "outDir": "lib",
         "paths": {
-            "@ijstech1/*":["*", "./node_modules/@ijstech/node/packages/*"],
-            "@ijstech/node":["*", "./repos/node"],
-            "@ijstech/*":["*", "./repos/node/packages/*"]
+            "@ijstech/node":["*", "./node_modules/@ijstech/node"],
+            "@ijstech/*":["*", "./node_modules/@ijstech/node/packages/*"]            
         }
     },
     "include": ["src"],
