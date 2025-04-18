@@ -1,5 +1,4 @@
-import 'mocha';
-import Ganache from "ganache";
+import hardhat from "hardhat";
 import {Wallet} from "@ijstech/eth-wallet";
 import {Contracts, deploy} from "../src/index";
 import assert from "assert";
@@ -8,13 +7,7 @@ describe('##Contracts', function() {
     let accounts: string[];
     let wallet: Wallet;
     before(async ()=>{
-        let provider = Ganache.provider({
-            logging: {
-                logger: {
-                    log: () => { }
-                }
-            }
-        });
+        let provider = hardhat.network.provider;
         wallet = new Wallet(provider);
         accounts = await wallet.accounts;
         wallet.defaultAccount = accounts[0];
