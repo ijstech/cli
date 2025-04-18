@@ -1,6 +1,6 @@
 {
     "name": "@ijstech/cli",
-    "version": "0.1.48",
+    "version": "0.1.49",
     "main": "lib/index.js",
     "types": "types/index.d.ts",
     "repository": {
