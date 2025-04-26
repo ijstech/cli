@@ -1,0 +1,113 @@
+{
+  "main": "@scom/decom-site",
+  "entrypoint": "data",
+  "bundle": true,
+  "version": "0.1.0",
+  "meta": {
+    "title": "Trustroot Org",
+    "charset": "utf-8"
+  },
+  "multilingual": {
+    "default": "en",
+    "locales": [
+      {
+        "code": "en",
+        "name": "English"
+      },
+      {
+        "code": "zh-hant",
+        "name": "繁體中文"
+      }
+    ]
+  },
+  "dependencies": {
+    "@scom/scom-yaml": "*",
+    "@scom/decom-site": "*",
+    "@scom/scom-image": "*",
+    "@scom/scom-image-gallery": "*",
+    "@scom/page-button": "*",
+    "@scom/page-text": "*",
+    "@scom/page-text-list": "*",
+    "@scom/page-block": "*",
+    "@scom/page-form": "*",
+    "@scom/page-breadcrumb": "*",
+    "@scom/page-blog": "*",
+    "@scom/page-blog-list": "*"
+  },
+  "packages": [
+  ],
+  "themes": {
+    "default": "light",
+    "light": {
+      "background": {
+        "default": "color-mix(in srgb,color-mix(in srgb, rgb(70 70 70), rgb(251 252 252) 96%),transparent calc(100% - 100%))",
+        "paper": "#5D0D07",
+        "main": "#fff",
+        "modal": "#F39422",
+        "gradient": "linear-gradient(135deg, #f8f9fa 0%, #f1f3f5 20%, #e9ecef 40%, #dee2e6 100%)"
+      },
+      "colors": {
+        "primary": {
+          "contrastText": "#fff",
+          "dark": "#FF9933",
+          "light": "#FA8930",
+          "main": "#F39422"
+        },
+        "secondary": {
+          "main": "#000",
+          "light": "#F9F9F9"
+        },
+        "warning": {
+          "main": "rgb(185, 94, 4)",
+          "light": "hsla(50, 82%, 75%, .4)"
+        },
+        "success": {
+          "main": "rgb(0, 136, 71)"
+        },
+        "error": {
+          "main": "rgb(211, 61, 61)"
+        },
+        "info": {
+          "main": "rgb(63 137 161/1)",
+          "dark": "rgb(38 82 97/1)"
+        }
+      },
+      "divider": "#707070",
+      "layout": {
+        "container": {
+          "maxWidth": "77.5rem"
+        }
+      },
+      "text": {
+        "primary": "color-mix(in srgb,color-mix(in srgb, rgb(180 180 180), rgb(20 20 20) 94.5%),transparent calc(100% - 100%))",
+        "secondary": "#5C5C5C",
+        "third": "#fff",
+        "disabled": "color-mix(in srgb,color-mix(in srgb, rgb(180 180 180), rgb(20 20 20) 94.5%),transparent calc(100% - 100% * .24))"
+      },
+      "action": {
+        "active": "rgb(101 161 180)",
+        "activeBackground": "rgb(63 137 161/.12)",
+        "hoverBackground": "color-mix(in srgb,color-mix(in srgb, rgb(180 180 180), rgb(20 20 20) 94.5%),transparent calc(100% - 100% * .04))",
+        "hover": "color-mix(in srgb,color-mix(in srgb, rgb(180 180 180), rgb(20 20 20) 94.5%),transparent calc(100% - 100% * .88))",
+        "selected": "rgb(101 161 180)",
+        "selectedBackground": "rgb(63 137 161/.12)"
+      },
+      "shadows": {
+        "0": "inset 0 0 0 0 #fff,inset 0 0 0 calc(1px) color-mix(in srgb,color-mix(in srgb, rgb(180 180 180), rgb(20 20 20) 94.5%),transparent calc(100% - 100% * 0.04)),0 0 #0000",
+        "1": "0px 1px 1px rgba(0,0,0,.09),0px 3.267px 2.754px rgba(0,0,0,.05),0px 6.278px 6.63px rgba(0,0,0,.05),0px 14px 22px rgba(0,0,0,.04)"
+      },
+      "typography": {
+        "fontSize": "16px"
+      },
+      "docs": {
+        "background": "#fff",
+        "text0": "color-mix(in srgb,color-mix(in srgb, rgb(180 180 180), rgb(20 20 20) 94.5%),transparent calc(100% - 100%))",
+        "text1": "color-mix(in srgb,color-mix(in srgb,rgb(180 180 180),rgb(20 20 20) 94.5%),transparent calc(100% - 100% * .72))"
+      },
+      "input": {
+        "background": "#fff",
+        "fontColor": "#565656"
+      }
+    } 
+  }
+}

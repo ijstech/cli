@@ -1,0 +1,29 @@
+{
+  "name": "@scom/trustroot-org",
+  "version": "0.1.0",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@ijstech/components": "^0.1.51",
+    "@scom/decom-site": "latest",
+    "@scom/scom-image": "latest",
+    "@scom/scom-image-gallery": "latest",
+    "@scom/page-button": "latest",
+    "@scom/page-blog-list": "latest",
+    "@scom/page-blog": "latest",
+    "@scom/page-text": "latest",
+    "@scom/page-text-list": "latest",
+    "@scom/page-block": "latest",
+    "@scom/page-form": "latest",
+    "@scom/page-breadcrumb": "latest"
+  },
+  "devDependencies": {    
+    "@ijstech/cli": "^0.1.28"  
+  },
+  "scripts": {
+    "build": "rm -rf dist && npx @ijstech/cli bundle site",
+    "serve": "npx @ijstech/cli serve 8080",
+    "test": "npm run build && npm run serve"
+  }
+}
