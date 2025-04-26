@@ -361,7 +361,11 @@ async function main(){
         }
     }
     else if (args[0] == 'init'){
-        if (args[1] == 'lib'){
+        if (args[1] == 'site'){
+            copyDir(Path.join(__dirname, 'templates/site'), RootDir);
+            addGitIgnore();
+        }
+        else if (args[1] == 'lib'){
             copyDir(Path.join(__dirname, 'templates/lib'), RootDir);
             addGitIgnore();
             addNpmIgnore();
