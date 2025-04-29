@@ -10,7 +10,7 @@
 ```@scom/scom-image{
   "width": "220px"
 }
-url: "/.assetslogo.svg"
+url: "/.assets/logo.svg"
 ```
 
 ```@scom/page-group{
@@ -61,21 +61,21 @@ url: "/.assetslogo.svg"
   "width": "28px",
   "height": "28px"
 }
-url: "/.assetsx.svg"
+url: "/.assets/x.svg"
 ```
 
 ```@scom/scom-image{
   "width": "28px",
   "height": "28px"
 }
-url: "/.assetsdiscord.svg"
+url: "/.assets/discord.svg"
 ```
 
 ```@scom/scom-image{
   "width": "28px",
   "height": "28px"
 }
-url: "/.assetsgithub.svg"
+url: "/.assets/github.svg"
 ```
 
 
