@@ -241,8 +241,8 @@ async function getLocalPackagePath(name) {
     else
         return '';
 };
-function addGitIgnore() {
-    let gitignorePath = Path.join(RootDir, '.gitignore');
+function addGitIgnore(targetPath = '') {
+    let gitignorePath = targetPath ? Path.join(targetPath, '.gitignore') : Path.join(RootDir, '.gitignore');
     if (!Fs.existsSync(gitignorePath)) {
         Fs.writeFileSync(gitignorePath, '/node_modules/\n/package-lock.json');
     }
@@ -271,7 +271,7 @@ async function main(){
         runTsFile(args);
     }
     else if (args[0] == 'bundle'){
-        if (args[1] == 'site') {
+        if (args[1] == 'site' || args[1] == 'docs') {
             try {
                 const sortedDeps = getSortedDependencies('./package.json');
                 let scconfig = JSON.parse(Fs.readFileSync('./scconfig.json'));
@@ -398,6 +398,7 @@ async function main(){
                 const ignoreFiles = ['scconfig.json', 'data'];
                 copyDir(sourcePath, targetPath, ignoreFiles)
             }
+            addGitIgnore(targetPath);
         }
         let packPath = Path.join(RootDir, 'package.json');
         if (args[2] && Fs.existsSync(packPath)){

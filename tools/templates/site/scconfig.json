@@ -1,12 +1,13 @@
 {
-  "main": "@scom/decom-site",
+  "main": "@scom/site",
   "entrypoint": "data",
   "bundle": true,
   "version": "0.1.0",
   "meta": {
-    "title": "Trustroot Org",
+    "title": "Site",
     "charset": "utf-8"
   },
+  "useHashRouting": true,
   "multilingual": {
     "default": "en",
     "locales": [
@@ -22,7 +23,7 @@
   },
   "dependencies": {
     "@scom/scom-yaml": "*",
-    "@scom/decom-site": "*",
+    "@scom/site": "*",
     "@scom/scom-image": "*",
     "@scom/scom-image-gallery": "*",
     "@scom/page-button": "*",

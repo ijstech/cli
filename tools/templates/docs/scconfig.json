@@ -1,40 +1,12 @@
 {
-    "moduleDir": "modules",
-    "libDir": "libs",
+    "entrypoint": "data",
     "bundle": true,
-    "type": "dapp",
-    "main": "@modules/main",
-    "assets": "@modules/assets",
-    "modules": {
-        "@modules/assets": {
-            "path": "assets",
-            "dependencies": []
-        },
-        "@modules/main": {
-            "path": "main",
-            "dependencies": [
-                "@scom/scom-scbook"
-            ]
-        }
-    },
+    "version": "0.1.0",
+    "main": "@scom/docs",
+    "useHashRouting": true,
     "dependencies": {
-        "@modules/assets": "*",
-        "@scom/scom-code-editor": "*",
-        "@ijstech/compiler": "*",
-        "@scom/scom-designer": "*",
-        "@scom/scom-code-viewer": "*",
-        "@scom/scom-scbook": "*",
-        "@modules/main": "*"
+        "@scom/docs": "*"
     },
-    "menus": [
-        {
-            "caption": "Module",
-            "url": "/main",
-            "module": "@modules/main",
-            "params": {},
-            "menus": []
-        }
-    ],
     "meta": {
         "favicon": "modules/assets/img/favicon.png",
         "title": "Docs",
@@ -193,12 +165,5 @@
             }
         }
     },
-    "packages": [
-        "@ijstech/components",
-        "@scom/scom-scbook",
-        "@scom/scom-code-editor",
-        "@scom/scom-designer",
-        "@ijstech/compiler",
-        "@scom/scom-code-viewer"
-    ]
+    "packages": []
 }

@@ -6,7 +6,7 @@
   },
   "dependencies": {
     "@ijstech/components": "^0.1.51",
-    "@scom/decom-site": "latest",
+    "@scom/site": "latest",
     "@scom/scom-image": "latest",
     "@scom/scom-image-gallery": "latest",
     "@scom/page-button": "latest",
