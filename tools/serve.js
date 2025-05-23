@@ -37,8 +37,22 @@ async function getDevData(path) {
     };
     return result;
 };
+async function checkPath(path, distPath){
+    const dist = await readDir(distPath);
+    let inDist = false;
+
+    for (let file of dist){
+        const fileName = file.name;
+        if (path.startsWith(`/${fileName}`)) {
+            inDist = true;
+            break;
+        }
+    }
+
+    return inDist;
+}
 let devData = {};
-module.exports = async function(port, distPath, devDataPath){
+module.exports = async function(port, distPath, devDataPath, scconfig){
     port = port || 8080;
     if (!distPath)
         distPath = Path.resolve(RootDir, './dist')
@@ -48,15 +62,19 @@ module.exports = async function(port, distPath, devDataPath){
         devDataPath = Path.resolve(RootDir, devDataPath);
         devData = await getDevData(devDataPath);
     };
-    http.createServer(function (request, response) {    
+    http.createServer(async function (request, response) {    
         var url = request.url;
         var filePath;
-        let files = url.split('/');    
-        if (url == '/')
-            filePath = Path.join(distPath, files[1] || 'index.html')
+        let files = url.split('/');
+        const useHash = scconfig.useHashRouting ?? true;
+        const inDist = await checkPath(url, distPath);
+        if (url == '/' || (!useHash && !inDist)) {
+            filePath = Path.join(distPath, useHash ? files[1] || 'index.html' : 'index.html');
+        }
         else
             filePath = Path.join(distPath, url);   
-        filePath = Path.resolve(filePath);    
+        filePath = Path.resolve(filePath);
+        
         if (!filePath.startsWith(distPath)){
             response.writeHead(404, { 'Content-Type': 'text/html' });
             return response.end('404 not found!', 'utf-8');
