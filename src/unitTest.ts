@@ -76,7 +76,12 @@ class TestContext {
           console.log(`${entry.indent}\x1b[32m✓ ${entry.name}\x1b[0m`);
         } catch (error) {
           this.failureCount++;
-          failedTests.push({ name: entry.name, error: (error as Error).message });
+          // Capture stack trace for failed test
+          const errObj = error as Error;
+          failedTests.push({ 
+            name: entry.name, 
+            error: errObj.message + (errObj.stack ? `\n${errObj.stack}` : '') 
+          });
           console.log(`${entry.indent}\x1b[31m✗ ${entry.name}\x1b[0m`);
         } finally {
           for (const hook of this.afterEachHooks) {
@@ -100,6 +105,7 @@ class TestContext {
       console.log('\x1b[31mFailed Tests:\x1b[0m');
       failedTests.forEach((fail, idx) => {
         console.log(`  ${idx + 1}) ${fail.name}`);
+        // Print error message and stack trace (if present)
         console.log(`     \x1b[31m${fail.error}\x1b[0m`);
       });
       console.log();
