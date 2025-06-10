@@ -8,14 +8,14 @@ let SiteTemplate = `<!DOCTYPE html>
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
   {{meta}}
   <script 
-    src="{{rootDir}}libs/@ijstech/components/index.js"
+    src="/{{rootDir}}libs/@ijstech/components/index.js"
     integrity="{{sri}}"
     crossorigin="anonymous"></script>
 </head>
 <body>
   <script>
     async function init() {
-      let module = await application.init('{{rootDir}}scconfig.json');
+      let module = await application.init('/{{rootDir}}scconfig.json');
       document.body.append(module);
     };
     init();
