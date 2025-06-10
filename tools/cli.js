@@ -3,6 +3,7 @@ const Fs = require('fs');
 const Path = require('path');
 const RootDir = process.cwd();
 let SiteTemplate = `<!DOCTYPE html>
+<html>
 <head>
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
   {{meta}}
@@ -11,7 +12,6 @@ let SiteTemplate = `<!DOCTYPE html>
     integrity="{{sri}}"
     crossorigin="anonymous"></script>
 </head>
-<html>
 <body>
   <script>
     async function init() {
